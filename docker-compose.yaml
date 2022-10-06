@@ -5,4 +5,4 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - "/home/service_velocity/mnt/docker-wars:/usr/local/tomcat"
+      - "/home/service_velocity/mnt/:/usr/local/tomcat/webapps/"
