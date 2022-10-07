@@ -3,6 +3,6 @@ services:
   tomcat:
     image: 'tomcat'
     ports:
-      - "8080:8080"
+      - "8080-8090:8080"
     volumes:
-      - "/home/service_velocity/mnt/:/usr/local/tomcat/webapps/"
+      - "/mnt/project/:/usr/local/tomcat/webapps/"
