@@ -16,10 +16,10 @@
     - name: docker start
       action: service name=docker state=restarted
       
-   - name: copy file
+    - name: copy file
       action: copy src=/home/service_velocity/mnt/project/game-of-life/gameoflife-web/target/gameoflife.war dest=/home/service_velocity
 
-  - name: copy docker-compose
+    - name: copy docker-compose
       action: copy src=/home/service_velocity/mnt/project/project/docker-compose.yaml dest=/home/service_velocity
     
 
