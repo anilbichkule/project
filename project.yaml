@@ -15,34 +15,11 @@
       
     - name: docker start
       action: service name=docker state=restarted
+      
+   - name: copy file
+      action: copy src=/home/service_velocity/mnt/project/game-of-life/gameoflife-web/target/gameoflife.war dest=/home/service_velocity
 
-    - name: installing java
-      action: yum pkg=java-1.8.0-openjdk-devel.x86_64 state=present
-      
-    - name: install docker-compose
-      get_url:
-        url: "https://github.com/docker/compose/releases/download/v2.11.0/docker-compose-linux-x86_64"
-        dest: /usr/local/bin/docker-compose
-        mode: 'u+x'
-      
-    - name: create shortcut ansible-compose
-      command: sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-      
-    - name: copy file
-      action: copy src=/home/service_velocity/mnt/project/game-of-life/gameoflife-web/target/gameoflife.war dest=/home/service_velocity/mnt/docker-wars remote_src=no
-
-    - name: git clone
-      git:
-        repo: 'https://github.com/anilbichkule/project.git'
-        dest: /home/service_velocity/
-        clone: yes
-      
-    # - name: down container
-        # shell:
-         # command: "docker-compose down"
-      
-    - name: run container
-      shell:
-        command: "docker-compose up -d --scale tomcat=2"
+  - name: copy docker-compose
+      action: copy src=/home/service_velocity/mnt/project/project/docker-compose.yaml dest=/home/service_velocity
     
 
